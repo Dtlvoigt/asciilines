@@ -2,7 +2,6 @@
  **                         **
  **   Asciilines.cpp        **
  **   Author: Dylan Voigt   **
- **   CS461P HW1            **
  **                         **
  *****************************/
 
