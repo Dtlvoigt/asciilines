@@ -33,18 +33,18 @@ void initializeTable(std::ifstream &testFile)
 //parses and executes individual commands from file
 void parseCommand(std::ifstream &testFile)
 {
-	char render, orientation;
+	char renderChar, orientation;
 	int startRow, startCol, length;
 	
 	//read info into variables
-	testFile >> render >> startRow >> startCol >> orientation >> length;
+	testFile >> renderChar >> startRow >> startCol >> orientation >> length;
 
 	int xLength = 1;
 	int yLength = 1;
 
-	if(orientation == 'h')
+	if(orientation == 'h' || orientation == 'H')
 		xLength = length;
-	if(orientation == 'v')
+	if(orientation == 'v' || orientation == 'V')
 		yLength = length;
 
 	//add render character to table if it falls within the canvas size
@@ -53,9 +53,11 @@ void parseCommand(std::ifstream &testFile)
 		for(int j = startCol; j < (startCol + xLength); j++)
 		{
 			if(i > -1 && i < numRows && j > -1 && j < numCols)
-				table[i][j] = render;
+				table[i][j] = renderChar;
 		}
 	}
+	
+	return;
 }
 
 //prints contents of 2d array to screen
@@ -68,6 +70,8 @@ void printTable()
 			//std::cout << table[i][j] << ' ';
 		std::cout << '\n';
 	}
+	
+	return;
 }
 
 int main(int argc, char* argv[])
@@ -86,7 +90,7 @@ int main(int argc, char* argv[])
 	//exit if file cannot be opened
 	if(!testFile.is_open())
 	{
-		std::cerr << "EXIT: Cannot open " << argv[1] << '\n';
+		std::cerr << "EXIT: Cannot open " << argv[1] << ".\n";
 		return -2;
 	}
 
