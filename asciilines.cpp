@@ -66,7 +66,6 @@ void printTable()
 	{
 		for(int j = 0; j < numCols; j++)
 			std::cout << table[i][j];
-			//std::cout << table[i][j] << ' ';
 		std::cout << '\n';
 	}
 	
