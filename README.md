@@ -2,6 +2,7 @@
 Copyright (c) 2019 Dylan Voigt
 
 This program takes a .tvg file as an argument and prints a visual representation of its contents. 
+You can view examples of test inputs and outputs in the 'tests' folder.
 
 ## Build and Run
 Compile this program with the g++ compiler like so:
